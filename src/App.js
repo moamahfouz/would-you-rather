@@ -1,10 +1,13 @@
 import React, { Component } from "react";
+import Login from './components/Login'
 class App extends Component {
   componentDidMount() {
     console.log("init app");
   }
-  render() {
-    return <h2>Init app</h2>;
+  render() {  
+    return (
+      <Login available_users={['ahmed','mohamed']}/>
+    );
   }
 }
 
