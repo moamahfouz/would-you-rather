@@ -59,7 +59,7 @@ class Login extends Component {
                       {available_users.map((item) => (                        
                           <div className='p-1' value={item.value} key={item.value}>
                             <div className='img'>
-                              <img src={item.avatarURL}/>
+                              <img src={item.avatarURL} alt='Avatar!'/>
                               </div>
                             {item.label}
                           </div>
