@@ -55,13 +55,7 @@ class Login extends Component {
               <Card bg="light" className="text-center">
                 <Card.Header>Login</Card.Header>
                 <Card.Body>
-                  <Form onSubmit={this.handleSubmit}>
-                    <Form.Group controlId="formGridState">
-                      <Form.Label>Username</Form.Label>
-                      {errors ? <p className="text-danger">{errors}</p> : null}
-
-
-                      <div className='d-flex'>
+                <div className='d-flex'>
                       {available_users.map((item) => (                        
                           <div className='p-1' value={item.value} key={item.value}>
                             <div className='img'>
@@ -73,6 +67,14 @@ class Login extends Component {
                       </div>
 
                       <hr />
+                      
+                  <Form onSubmit={this.handleSubmit}>
+                    <Form.Group controlId="formGridState">
+                      <Form.Label>Username</Form.Label>
+                      {errors ? <p className="text-danger">{errors}</p> : null}
+
+
+                     
 
                       <Form.Control
                         as="select"
