@@ -33,7 +33,7 @@ class Login extends Component {
   render() {
     const { available_users } = this.props;
     const { errors } = this.state;
-    console.log(available_users)
+  
     return (
       <div>
         <Navbar bg="dark" variant="dark" expand="lg" sticky="top">
