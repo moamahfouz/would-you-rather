@@ -18,7 +18,6 @@
   transition: 0.5s ease;
 }
 .card:hover img {
-  transform: scale(1.1);
   opacity: 1;
   cursor: pointer;
 }

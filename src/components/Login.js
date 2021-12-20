@@ -33,7 +33,7 @@ class Login extends Component {
   render() {
     const { available_users } = this.props;
     const { errors } = this.state;
-
+    console.log(available_users)
     return (
       <div>
         <Navbar bg="dark" variant="dark" expand="lg" sticky="top">
@@ -60,19 +60,33 @@ class Login extends Component {
                       <Form.Label>Username</Form.Label>
                       {errors ? <p className="text-danger">{errors}</p> : null}
 
+
+                      <div className='d-flex'>
+                      {available_users.map((item) => (                        
+                          <div className='p-1' value={item.value} key={item.value}>
+                            <div className='img'>
+                              <img src={item.avatarURL}/>
+                              </div>
+                            {item.label}
+                          </div>
+                        ))}
+                      </div>
+
+                      <hr />
+
                       <Form.Control
                         as="select"
                         ref={(id) => (this.userID = id)}
                       >
-                        <option value="">Select a user</option>
-                        {available_users.map((item) => (
+                        <option disabled value="">Select a user</option>
+                        {available_users.map((item) => (                        
                           <option value={item.value} key={item.value}>
                             {item.label}
                           </option>
                         ))}
                       </Form.Control>
                     </Form.Group>
-				   <Button type="submit" variant="outline-success" size="md">
+				            <Button type="submit" variant="outline-success" size="md">
                       Login
                     </Button>				   
                   </Form>
@@ -91,6 +105,7 @@ function mapStateToProps({ users }) {
     available_users: Object.keys(users).map((id) => ({
       value: id,
       label: users[id].name,
+      avatarURL: users[id].avatarURL,
     })),
   };
 }
